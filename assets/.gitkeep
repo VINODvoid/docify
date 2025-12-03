@@ -1,0 +1,25 @@
+# Assets Directory
+
+This directory contains visual assets for the README.md file.
+
+## Required Files:
+
+**Static Images:**
+- logo.png (120x120)
+- document-page.png (700w)
+- toolbar.png (700w)
+- editor-overview.png (800w)
+- mobile-view.png (400w)
+- screenshot-editor.png (800w)
+- screenshot-toolbar.png (800w)
+- screenshot-tables.png (800w)
+- screenshot-tasks.png (800w)
+
+**Animated GIFs:**
+- demo.gif (800w)
+- rich-text-editing.gif (700w)
+- table-editing.gif (700w)
+- image-insertion.gif (700w)
+- task-lists.gif (700w)
+
+See CAPTURE_GUIDE.md for detailed instructions on creating these assets.
