@@ -93,7 +93,7 @@ export const Editor = () => {
 
     ],
     //TODO: Image Resize not working as expected
-    content: ` hello world`,
+  content: ``,
     immediatelyRender: false,
   });
 
