@@ -50,7 +50,7 @@ import { useState } from 'react';
 import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 import { DropdownMenuItem } from '@radix-ui/react-dropdown-menu';
-import { Value } from '@radix-ui/react-select';
+
 
 
 
@@ -699,9 +699,9 @@ export const Toolbar = () => {
         label: 'Comment',
         icon: MessageSquarePlusIcon,
         onClick: () => {
-          /* TODO: Add Comment Functionality */
+          editorInstance?.chain().focus().addPendingComment().run();
         },
-        isActive: false, //TODO: Add Active State for Comment
+        isActive: editorInstance?.isActive('liveblocksCommentMark') || false,
       },
       {
         label: 'List Todo',
