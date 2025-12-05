@@ -7,6 +7,7 @@ import { useState } from 'react';
 import { Input } from "./ui/input";
 import { Button } from "./ui/button";
 import { set } from "date-fns";
+import { toast } from "sonner";
 
 interface RenameDialogProps {
   documentId: Id<'documents'>;
@@ -24,8 +25,12 @@ export const RenameDialog = ({ documentId, children,initialTitle }: RenameDialog
     e.preventDefault();
     setIsUpdating(true);
     await update({id: documentId, title:title.trim() || "Untitled Document"})
+    .catch(()=>{
+      toast.error("Something went wrong while renaming the document");
+    })
     .then(() => {
       setOpen(false);
+      toast.success("Document renamed successfully");
     })
     .finally(() => {
       setIsUpdating(false);
