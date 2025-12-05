@@ -1,16 +1,16 @@
-import type { Metadata } from "next";
-import {Inter } from "next/font/google";
-import "./globals.css";
-import {NuqsAdapter} from "nuqs/adapters/next/app"
-import { ConvexClientProvider } from "@/components/convex-client-provider";
-
-const inter = Inter({ subsets: ["latin"] });
+import type { Metadata } from 'next';
+import { Inter } from 'next/font/google';
+import './globals.css';
+import { NuqsAdapter } from 'nuqs/adapters/next/app';
+import { ConvexClientProvider } from '@/components/convex-client-provider';
+import { Toaster } from '@/components/ui/sonner';
+const inter = Inter({ subsets: ['latin'] });
 export const metadata: Metadata = {
-  title: "Docify - Document Editor",
-  description: "A simple and elegant document editor.",
-  icons:{
-    icon:"/logo.svg"
-  }
+  title: 'Docify - Document Editor',
+  description: 'A simple and elegant document editor.',
+  icons: {
+    icon: '/logo.svg',
+  },
 };
 
 export default function RootLayout({
@@ -20,12 +20,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={inter.className}
-      >
+      <body className={inter.className}>
         <NuqsAdapter>
           <ConvexClientProvider>
-        {children}
+            <Toaster />
+            {children}
           </ConvexClientProvider>
         </NuqsAdapter>
       </body>
