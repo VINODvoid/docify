@@ -1,4 +1,4 @@
-import { Loader2Icon } from "lucide-react";
+import {LoaderIcon } from "lucide-react";
 
 interface FullscreenLoaderProps {
   label?: string;
@@ -7,7 +7,7 @@ interface FullscreenLoaderProps {
 export const FullscreenLoader = ({ label }: FullscreenLoaderProps) => {
   return (
     <div className="min-h-screen flex flex-col items-center justify-center gap-2">
-      <Loader2Icon
+      <LoaderIcon
         className="size-6 text-muted-foreground animate-spin"
         color="#7033ff"
       />
