@@ -21,11 +21,17 @@ export   function Document({ preloadedDocument }: DocumentProps) {
   return (
     <Room>
       <div className="min-h-screen bg-background">
-        <div className="flex flex-col px-4 gap-y-2 fixed top-0 left-0 right-0 z-10 bg-background print:hidden">
+        {/* Gradient background effects */}
+        <div className="fixed inset-0 -z-10 overflow-hidden pointer-events-none">
+          <div className="absolute top-0 right-1/4 w-96 h-96 bg-primary/5 rounded-full blur-3xl" />
+          <div className="absolute bottom-1/4 left-1/3 w-96 h-96 bg-accent/5 rounded-full blur-3xl" />
+        </div>
+
+        <div className="flex flex-col px-4 gap-y-3 fixed top-0 left-0 right-0 z-10 bg-background/80 backdrop-blur-md print:hidden py-2">
           <Navbar data={document}/>
           <Toolbar />
         </div>
-        <div className="pt-28 print:pt-0">
+        <div className="pt-32 print:pt-0">
           <Editor initialContent={document.initialContent}/>
         </div>
       </div>

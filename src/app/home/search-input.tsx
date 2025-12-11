@@ -27,22 +27,21 @@ export const SearchInput = () => {
 
   return (
     <div className="flex-1 flex items-center justify-center">
-      <form className="relative max-w-[720px] w-full" onSubmit={handleSubmit}>
+      <form className="relative max-w-[720px] w-full group" onSubmit={handleSubmit}>
         <Input
           value={value}
           onChange={handleChange}
           ref={inputRef}
-          placeholder="search the docs..."
-          className="md:text-base placeholder:text-primary px-14 w-full border-none focus-visible:shadow-[0_1px_1px_0_rgba(65,69,73,.3),0_1px_3px_0_rgba(65,69,73,0.15)] bg-[#F0F4F8] rounded-full h-10 focus-visible:right-0 focus:bg-white"
+          placeholder="Search documents..."
+          className="md:text-base placeholder:text-muted-foreground px-14 w-full border border-border/50 bg-card/50 backdrop-blur-sm rounded-full h-11 transition-all duration-300 focus-visible:ring-2 focus-visible:ring-primary/50 focus-visible:border-primary hover:border-primary/50 hover:bg-card"
         />
         <Button
           type="submit"
           variant={'ghost'}
           size={'icon'}
-          className="absolute left-3 top-1/2 -translate-y-1/2 [&_svg]:size-5 rounded-full"
+          className="absolute left-3 top-1/2 -translate-y-1/2 rounded-full hover:bg-primary/10 transition-colors"
         >
-
-          <SearchIcon className="size-4" color="#7033ff" />
+          <SearchIcon className="size-5 text-primary" />
         </Button>
         {value && (
           <Button
@@ -50,9 +49,9 @@ export const SearchInput = () => {
             type="button"
             variant={'ghost'}
             size={'icon'}
-            className="absolute right-3 top-1/2 -translate-y-1/2 [&_svg]:size-5 rounded-full"
+            className="absolute right-3 top-1/2 -translate-y-1/2 rounded-full hover:bg-destructive/10 transition-colors"
           >
-            <XIcon className="size-4" color="#7033ff"/>
+            <XIcon className="size-5 text-muted-foreground hover:text-destructive transition-colors"/>
           </Button>
         )}
       </form>

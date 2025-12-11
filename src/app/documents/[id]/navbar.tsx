@@ -108,17 +108,25 @@ export const Navbar = ({data}:NavbarProps) => {
   };
 
   return (
-    <nav className="flex items-center justify-between">
-      <div className="flex gap-2 items-center ">
-        <Link href="/">
-          <Image src="/logo.svg" alt="Logo" width={36} height={36} />
+    <nav className="flex items-center justify-between border-b border-border/40 backdrop-blur-sm bg-background/80">
+      <div className="flex gap-3 items-center">
+        <Link href="/" className="group">
+          <div className="relative">
+            <Image
+              src="/logo.svg"
+              alt="Logo"
+              width={36}
+              height={36}
+              className="transition-transform group-hover:scale-110"
+            />
+          </div>
         </Link>
         <div className="flex flex-col">
           <DocumentInput title={data.title} id={data._id} />
           <div className="flex">
             <Menubar className="border-none bg-transparent shadow-none h-auto p-0">
               <MenubarMenu>
-                <MenubarTrigger className="text-sm font-normal py-0.5 px-2 rounded-sm hover:bg-muted h-auto">
+                <MenubarTrigger className="text-sm font-normal py-0.5 px-2 rounded-lg hover:bg-muted/60 transition-colors h-auto">
                   File
                 </MenubarTrigger>
                 <MenubarContent className="print:hidden">
@@ -177,7 +185,7 @@ export const Navbar = ({data}:NavbarProps) => {
                 </MenubarContent>
               </MenubarMenu>
               <MenubarMenu>
-                <MenubarTrigger className="text-sm font-normal py-0.5 px-2 rounded-sm hover:bg-muted h-auto">
+                <MenubarTrigger className="text-sm font-normal py-0.5 px-2 rounded-lg hover:bg-muted/60 transition-colors h-auto">
                   Edit
                 </MenubarTrigger>
                 <MenubarContent className="print:hidden">
@@ -196,7 +204,7 @@ export const Navbar = ({data}:NavbarProps) => {
                 </MenubarContent>
               </MenubarMenu>
               <MenubarMenu>
-                <MenubarTrigger className="text-sm font-normal py-0.5 px-2 rounded-sm hover:bg-muted h-auto">
+                <MenubarTrigger className="text-sm font-normal py-0.5 px-2 rounded-lg hover:bg-muted/60 transition-colors h-auto">
                   Insert
                 </MenubarTrigger>
                 <MenubarContent className="print:hidden">
@@ -236,7 +244,7 @@ export const Navbar = ({data}:NavbarProps) => {
                 </MenubarContent>
               </MenubarMenu>
               <MenubarMenu>
-                <MenubarTrigger className="text-sm font-normal py-0.5 px-2 rounded-sm hover:bg-muted h-auto">
+                <MenubarTrigger className="text-sm font-normal py-0.5 px-2 rounded-lg hover:bg-muted/60 transition-colors h-auto">
                   Format
                 </MenubarTrigger>
                 <MenubarContent className="print:hidden">

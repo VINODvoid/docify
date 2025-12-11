@@ -115,10 +115,10 @@ export const DocumentInput = ({ id, title }: DocumentInputProps) => {
       {/* Status indicator */}
       <div className="flex items-center justify-center w-5 h-5">
         {showLoader && (
-          <LoaderIcon className="size-4 text-muted-foreground animate-spin" />
+          <LoaderIcon className="size-4 text-primary animate-spin" />
         )}
         {showError && <BsCloudSlash className="size-4 text-destructive" />}
-        {showSaved && <BsCloudCheck className="size-4 text-muted-foreground" />}
+        {showSaved && <BsCloudCheck className="size-4 text-primary" />}
       </div>
     </div>
   );

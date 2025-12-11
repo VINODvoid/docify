@@ -82,24 +82,24 @@ const LineHeightButton = () => {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <button className="h-7 min-w-7 shrink-0 flex flex-col items-center justify-center rounded-sm hover:bg-muted/80 px-1.5 overflow-hidden text-sm ">
+        <button className="h-8 min-w-8 shrink-0 flex items-center justify-center rounded-lg hover:bg-muted/60 px-2 overflow-hidden text-sm transition-colors text-muted-foreground hover:text-foreground">
           <ListCollapseIcon className="size-4" />
         </button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent className=" p-1 flex flex-col gap-y-1 ">
+      <DropdownMenuContent className="p-1 flex flex-col gap-y-1 bg-card/95 backdrop-blur-sm border-border/50">
         {lineHeights.map(({ label, value }) => (
           <button
             key={value}
             className={cn(
-              'flex items-center gap-x-2 px-2 py-1 rounded-sm hover:bg-muted/80',
+              'flex items-center gap-x-2 px-3 py-2 rounded-lg hover:bg-muted/60 transition-colors text-sm',
               editorInstance?.getAttributes("paragraph").lineHeight === value &&
-                'bg-muted/80'
+                'bg-primary/15 text-primary'
             )}
             onClick={() =>
               editorInstance?.chain().focus().setLineHeight(value).run()
             }
           >
-            <span className="text-sm">{label}</span>
+            <span>{label}</span>
           </button>
         ))}
       </DropdownMenuContent>
@@ -209,23 +209,23 @@ const ListButton = () => {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <button className="h-7 min-w-7 shrink-0 flex flex-col items-center justify-center rounded-sm hover:bg-muted/80 px-1.5 overflow-hidden text-sm ">
+        <button className="h-8 min-w-8 shrink-0 flex items-center justify-center rounded-lg hover:bg-muted/60 px-2 overflow-hidden text-sm transition-colors text-muted-foreground hover:text-foreground">
           <ListIcon className="size-4" />
         </button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent className=" p-1 flex flex-col gap-y-1 ">
+      <DropdownMenuContent className="p-1 flex flex-col gap-y-1 bg-card/95 backdrop-blur-sm border-border/50">
         {lists.map(({ label,  icon: Icon,isActive,onClick }) => (
 
           <button
             key={label}
             className={cn(
-              'flex items-center gap-x-2 px-2 py-1 rounded-sm hover:bg-muted/80',
-              isActive() && 'bg-muted/80'
+              'flex items-center gap-x-2 px-3 py-2 rounded-lg hover:bg-muted/60 transition-colors text-sm',
+              isActive() && 'bg-primary/15 text-primary'
             )}
             onClick={onClick}
           >
             <Icon className="size-4" />
-            <span className="text-sm">{label}</span>
+            <span>{label}</span>
           </button>
         ))}
       </DropdownMenuContent>
@@ -261,25 +261,25 @@ const AlignButton = () => {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <button className="h-7 min-w-7 shrink-0 flex flex-col items-center justify-center rounded-sm hover:bg-muted/80 px-1.5 overflow-hidden text-sm ">
+        <button className="h-8 min-w-8 shrink-0 flex items-center justify-center rounded-lg hover:bg-muted/60 px-2 overflow-hidden text-sm transition-colors text-muted-foreground hover:text-foreground">
           <AlignLeftIcon className="size-4" />
         </button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent className=" p-1 flex flex-col gap-y-1 ">
+      <DropdownMenuContent className="p-1 flex flex-col gap-y-1 bg-card/95 backdrop-blur-sm border-border/50">
         {alignments.map(({label, value, icon : Icon}) => (
           <button
             key={value}
             className={cn(
-              'flex items-center gap-x-2 px-2 py-1 rounded-sm hover:bg-muted/80',
+              'flex items-center gap-x-2 px-3 py-2 rounded-lg hover:bg-muted/60 transition-colors text-sm',
               editorInstance?.isActive({ textAlign: value }) &&
-                'bg-muted/80'
+                'bg-primary/15 text-primary'
             )}
             onClick={() =>
               editorInstance?.chain().focus().setTextAlign(value).run()
             }
           >
             <Icon className="size-4"/>
-            <span className="text-sm">{label}</span>
+            <span>{label}</span>
           </button>
         ))}
       </DropdownMenuContent>
@@ -627,8 +627,10 @@ const ToolbarButton = ({
     <button
       onClick={onClick}
       className={cn(
-        'text-sm h-7 min-w-7 flex items-center justify-center rounded-sm hover:bg-muted/80 ',
-        isActive && 'bg-muted/80'
+        'text-sm h-8 min-w-8 flex items-center justify-center rounded-lg transition-all duration-200',
+        isActive
+          ? 'bg-primary/15 text-primary hover:bg-primary/20'
+          : 'hover:bg-muted/60 text-muted-foreground hover:text-foreground'
       )}
     >
       <Icon className="size-4" />
@@ -718,23 +720,23 @@ export const Toolbar = () => {
     ],
   ];
   return (
-    <div className="bg-secondary px-2.5 py-0.5 rounded-xl min-h-10 flex items-center gap-x-0.5 overflow-x-auto">
+    <div className="bg-card/80 backdrop-blur-md border border-border/50 px-3 py-1.5 rounded-2xl min-h-12 flex items-center gap-x-1 overflow-x-auto shadow-sm hover:shadow-md transition-shadow">
       {sections[0].map((item) => (
         <ToolbarButton key={item.label} {...item} />
       ))}
-      <Separator orientation="vertical" className='h-8 w-2'/>
+      <Separator orientation="vertical" className='h-8 bg-border/50'/>
       <FontFamilyButton />
-      <Separator orientation="vertical" />
+      <Separator orientation="vertical" className='h-8 bg-border/50'/>
       <HeadingButton />
-      <Separator orientation="vertical" />
+      <Separator orientation="vertical" className='h-8 bg-border/50'/>
       <FontSizeButton/>
-      <Separator orientation="vertical" />
+      <Separator orientation="vertical" className='h-8 bg-border/50'/>
       {sections[1].map((item) => (
         <ToolbarButton key={item.label} {...item} />
       ))}
       <TextColorButton />
       <HighlightColorButton />
-      <Separator orientation="vertical" />
+      <Separator orientation="vertical" className='h-8 bg-border/50'/>
       <LinkButton />
       <ImageButton />
       <AlignButton />

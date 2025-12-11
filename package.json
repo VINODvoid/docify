@@ -11,6 +11,7 @@
   "dependencies": {
     "@clerk/clerk-react": "^5.57.1",
     "@clerk/nextjs": "^6.35.6",
+    "@clerk/themes": "^2.4.43",
     "@hookform/resolvers": "^5.2.2",
     "@liveblocks/client": "^3.11.1",
     "@liveblocks/node": "^3.11.1",
@@ -63,6 +64,7 @@
     "convex": "^1.30.0",
     "date-fns": "^4.1.0",
     "embla-carousel-react": "^8.6.0",
+    "framer-motion": "^12.23.26",
     "input-otp": "^1.4.2",
     "lucide-react": "^0.555.0",
     "next": "16.0.7",
@@ -74,6 +76,7 @@
     "react-dom": "19.2.0",
     "react-hook-form": "^7.67.0",
     "react-icons": "^5.5.0",
+    "react-intersection-observer": "^10.0.0",
     "react-resizable-panels": "^3.0.6",
     "recharts": "^2.15.4",
     "sonner": "^2.0.7",
